@@ -17,8 +17,12 @@ class Competitor(models.Model):
     style = models.ManyToManyField(MusicStyle)
     avatar = models.ImageField(upload_to='competitors/%Y/%m/%d/', blank=True)
 
-    def __str__(self):
+    @property
+    def fullname(self):
         return f'{self.first_name} {self.last_name}'
+
+    def __str__(self):
+        return self.first_name
 
 
 class Teacher(models.Model):
@@ -37,8 +41,12 @@ class Teacher(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     slug = models.SlugField(max_length=60, blank=True)
-    subject = models.CharField(max_length=3, choices=Subjects.choices, default="")
+    subject = models.CharField(max_length=3, choices=Subjects.choices, null=True)
     avatar = models.ImageField(upload_to='teachers/%Y/%m/%d/', blank=True)
+
+    @property
+    def fullname(self):
+        return f'{self.first_name} {self.last_name}'
 
 
 class Judge(models.Model):
@@ -47,3 +55,7 @@ class Judge(models.Model):
     slug = models.SlugField(max_length=60, blank=True)
     job = models.CharField(max_length=30, blank=True)
     avatar = models.ImageField(upload_to='judge/%Y/%m/%d/', blank=True)
+
+    @property
+    def fullname(self):
+        return f'{self.first_name} {self.last_name}'
