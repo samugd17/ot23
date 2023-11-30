@@ -12,24 +12,27 @@ class CompetitorAdmin(admin.ModelAdmin):
         'birthdate',
         'city',
         'hobbies',
-        'style',
         'avatar',
     ]
-    list_filter = ['first_name', 'last_name', 'style']
+    list_filter = ['first_name', 'last_name']
+    prepopulated_fields = {'slug': ('first_name', 'last_name')}
 
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'slug', 'subject', 'avatar']
     list_filter = ['first_name', 'last_name', 'subject']
+    prepopulated_fields = {'slug': ('first_name', 'last_name')}
 
 
 @admin.register(Judge)
 class JudgeAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'slug', 'job', 'avatar']
     list_filter = ['first_name', 'last_name']
+    prepopulated_fields = {'slug': ('first_name', 'last_name')}
 
 
 @admin.register(MusicStyle)
 class MusicStyleAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
+    prepopulated_fields = {'slug': ('name',)}
