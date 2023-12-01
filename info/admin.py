@@ -14,21 +14,21 @@ class CompetitorAdmin(admin.ModelAdmin):
         'hobbies',
         'avatar',
     ]
-    list_filter = ['first_name', 'last_name']
+    list_filter = ['first_name']
     prepopulated_fields = {'slug': ('first_name', 'last_name')}
 
 
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'slug', 'subject', 'avatar']
-    list_filter = ['first_name', 'last_name', 'subject']
+    list_filter = ['first_name', 'subject']
     prepopulated_fields = {'slug': ('first_name', 'last_name')}
 
 
 @admin.register(Judge)
 class JudgeAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'slug', 'job', 'avatar']
-    list_filter = ['first_name', 'last_name']
+    list_filter = ['first_name']
     prepopulated_fields = {'slug': ('first_name', 'last_name')}
 
 

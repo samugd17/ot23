@@ -45,6 +45,10 @@ class Teacher(models.Model):
     subject = models.CharField(max_length=3, choices=Subjects.choices, null=True)
     avatar = models.ImageField(upload_to='teachers/%Y/%m/%d/', blank=True)
 
+    @property
+    def fullname(self):
+        return f'{self.first_name} {self.last_name}'
+
 
 class Judge(models.Model):
     first_name = models.CharField(max_length=30)

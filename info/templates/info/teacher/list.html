@@ -1,0 +1,26 @@
+{% extends "info/base.html" %}
+{% load static %}
+
+{% block title %}Profesores{% endblock %}
+{% block content %}
+<h1 class="text-center">Operación Triunfo 2023</h1>
+<section id="team" class="team_area section-padding">
+	<div class="container">								
+		<h2 class="text-center">Teachers</h2>	
+		<div class="row text-center">
+            {% for teacher in teachers %}
+			<div class="col-lg-2 col-sm-4 col-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
+				<div class="our-team">
+					<div class="single-team">
+						<img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-fluid" alt="">
+						<h3>{{ teacher.fullname }}</h3>
+						<p>{{ teacher.get_subject_display }}</p>
+					</div>							
+				</div><!--- END OUR TEAM -->	
+			</div><!--- END COL -->	
+            {% endfor %}		  
+		</div><!--- END ROW -->			
+	</div><!--- END CONTAINER -->
+</section>
+{% endblock %}
+
