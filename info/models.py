@@ -28,16 +28,16 @@ class Competitor(models.Model):
 
 class Teacher(models.Model):
     class Subjects(models.TextChoices):
-        REVIEW = "REW", "Review"
-        CHOREOGRAPHY = "CHP", "Choreography"
+        REVIEW = "REW", "Repaso"
+        CHOREOGRAPHY = "CHP", "Coreografía"
         FITNESS = "FIT", "Fitness"
         YOGA = "YOG", "Yoga"
-        MUSICAL_DIRECTOR = "MDR", "Musical Director"
-        VOCAL_TECHNIQUE = "VTC", "Vocal technique"
-        URBAN_DANCE = "UDC", "Urban Dance"
-        ENGLISH = "ENG", "English"
-        CHORAL_SINGING = "CSG", "Choral Singing"
-        INTERPRETATION = "INT", "Interpretation"
+        MUSICAL_DIRECTOR = "MDR", "Dirección Musical"
+        VOCAL_TECHNIQUE = "VTC", "Técnica Vocal"
+        URBAN_DANCE = "UDC", "Baile Urbano"
+        ENGLISH = "ENG", "Inglés"
+        CHORAL_SINGING = "CSG", "Canto Coral"
+        INTERPRETATION = "INT", "Interpretación"
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)

@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 
 from .models import Competitor, Judge, Teacher
@@ -31,3 +32,7 @@ def competitor_list(request):
 def competitor_detail(request, slug):
     competitor = get_object_or_404(Competitor, slug=slug)
     return render(request, 'info/competitor/detail.html', {'competitor': competitor})
+
+
+def homepage(request):
+    return HttpResponseRedirect('ot23')
