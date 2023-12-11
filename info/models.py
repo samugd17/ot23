@@ -65,4 +65,4 @@ class Judge(models.Model):
     avatar = models.ImageField(upload_to='judge/%Y/%m/%d/', blank=True)
 
     def get_absolute_url(self):
-        return reverse("judge_detail", kwargs={"slug": self.slug})
+        return reverse("info:judge_detail", kwargs={"slug": self.slug})
