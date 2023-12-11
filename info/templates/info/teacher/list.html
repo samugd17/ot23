@@ -1,26 +1,25 @@
-{% extends "info/base.html" %}
-{% load static %}
+{% extends "base.html" %}
 
 {% block title %}Profesores{% endblock %}
+
 {% block content %}
-<h1 class="text-center">Operación Triunfo 2023</h1>
-<section id="team" class="team_area section-padding">
+<section id="team" class="teacher-area">
+	<h1 class="text-center">Profesores</h1>	
 	<div class="container">								
-		<h2 class="text-center">Teachers</h2>	
-		<div class="row text-center">
+		<div class="row text-center d-flex flex-row justify-content-center mt-4">
             {% for teacher in teachers %}
-			<div class="col-lg-2 col-sm-4 col-6 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" data-wow-offset="0" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
-				<div class="our-team">
-					<div class="single-team">
-						<img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-fluid" alt="">
-						<h3>{{ teacher.fullname }}</h3>
+			<div class="our-teachers col-lg-2 col-sm-4 col-6">
+				<div class="single-teacher">
+					<a href="{{ teachers.get_absolute_url }}">
+						<img src="{{ teacher.avatar.url }}" class="img-fluid" alt="{{ teacher.fullname }}">
+						<h3 class="mt-2">{{ teacher.fullname }}</h3>
 						<p>Materia: {{ teacher.get_subject_display }}</p>
-					</div>							
-				</div><!--- END OUR TEAM -->	
-			</div><!--- END COL -->	
+					</a>
+				</div>							
+			</div>
             {% endfor %}		  
-		</div><!--- END ROW -->			
-	</div><!--- END CONTAINER -->
+		</div>	
+	</div>
 </section>
 {% endblock %}
 

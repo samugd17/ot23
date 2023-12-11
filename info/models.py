@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class MusicStyle(models.Model):
@@ -25,6 +26,9 @@ class Competitor(models.Model):
     def __str__(self):
         return self.first_name
 
+    def get_absolute_url(self):
+        return reverse("competitor_detail", kwargs={"slug": self.slug})
+
 
 class Teacher(models.Model):
     class Subjects(models.TextChoices):
@@ -49,6 +53,9 @@ class Teacher(models.Model):
     def fullname(self):
         return f'{self.first_name} {self.last_name}'
 
+    def get_absolute_url(self):
+        return reverse("info:teacher_detail", kwargs={"slug": self.slug})
+
 
 class Judge(models.Model):
     first_name = models.CharField(max_length=30)
@@ -56,3 +63,6 @@ class Judge(models.Model):
     slug = models.SlugField(max_length=60, blank=True)
     job = models.CharField(max_length=120)
     avatar = models.ImageField(upload_to='judge/%Y/%m/%d/', blank=True)
+
+    def get_absolute_url(self):
+        return reverse("judge_detail", kwargs={"slug": self.slug})

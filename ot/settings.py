@@ -32,13 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bootstrap5',
+    "info.apps.InfoConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "info.apps.InfoConfig",
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -126,5 +127,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Media Files configuration
 
-MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'media/'
