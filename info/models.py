@@ -27,7 +27,7 @@ class Competitor(models.Model):
         return self.first_name
 
     def get_absolute_url(self):
-        return reverse("competitor_detail", kwargs={"slug": self.slug})
+        return reverse("info:competitor_detail", kwargs={"slug": self.slug})
 
 
 class Teacher(models.Model):

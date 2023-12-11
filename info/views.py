@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render
+from django.db.models import Q
 
 from .models import Competitor, Judge, Teacher
 
@@ -35,3 +36,9 @@ def competitor_detail(request, slug):
 
 def homepage(request):
     return render(request, 'homepage.html')
+
+
+# def search(request, tofind: str):
+#     competitors = Competitor.objects.filter(first_name__icontains=tofind)
+#     return render(request, 'results.html', dict(competitors=competitors))
+# Q(question__startswith="Who") | ~Q(pub_date__year=2005)
