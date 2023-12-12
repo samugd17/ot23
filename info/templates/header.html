@@ -3,17 +3,18 @@
 <header id="header" class="header container-fluid ot-gradient shadow mb-5 bg-body rounded">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-6 d-flex justify-content-center align-content-center">
+            <div class="col-md-4 col-6 d-flex justify-content-center align-content-center">
                 <a href="{% url "info:homepage" %}">
                     <img src="{% static 'img/ot-banner.png' %}" id="ot-header-logo" class="img-fluid p-3" alt="ot-header-logo">
                 </a>
             </div>
             <!--BREADCRUMBS-->
+            {{sections}}
             {% include "breadcrumbs.html" %}
             <!--SEARCH BAR-->
-            <div class="col-lg-3 col-6 d-flex">
+            <div class="col-md-4 col-6 d-flex">
                 <form class="d-flex flex-row justify-content-end align-items-center" role="search">
-                    <input class="form-control me-2" type="search" placeholder="..." aria-label="Search" id="arrival-to-city">
+                    <input class="form-control me-2" type="search" placeholder="..." aria-label="Search" id="search">
                     <button id="search-btn" class="btn btn-outline-primary" type="submit">Buscar</button>
                 </form>
             </div>

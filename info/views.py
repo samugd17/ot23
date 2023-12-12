@@ -14,7 +14,8 @@ def teacher_detail(request, slug):
     return render(
         request,
         'info/teacher/detail.html',
-        dict(teacher=teacher, section=f'Profesores / {teacher.fullname}'),
+        dict(teacher=teacher)
+        #, section=f'Profesores / {teacher.fullname}'),
     )
 
 
@@ -53,6 +54,14 @@ def homepage(request):
 def breadcrumbs(request):
     sections = ['Alumnos', 'Profesores', 'Jurado']
     return render(request, 'info/breadcrumbs.html', {'sections': sections})
+
+
+
+
+
+
+
+
 
 
 # def search(request, tofind: str):

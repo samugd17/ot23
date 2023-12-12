@@ -8,6 +8,16 @@
   background: linear-gradient(to right, rgb(37, 37, 209), rgb(223, 119, 119), rgb(255, 187, 60));
 }
 
+/*****HEADER*****/
+.nav-link {
+  color: white;
+}
+
+.nav-item:hover {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10%;
+}
+
 /*****HOMEPAGE*****/
 .polaroid {
   width: -moz-fit-content;
