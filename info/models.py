@@ -23,8 +23,9 @@ class Competitor(models.Model):
     style = models.ManyToManyField(MusicStyle)
     avatar = models.ImageField(upload_to='competitors/%Y/%m/%d/', blank=True)
 
-    def __str__(self):
-        return self.first_name
+    @property
+    def fullname(self):
+        return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
         return reverse("info:competitor_detail", kwargs={"slug": self.slug})
@@ -63,6 +64,10 @@ class Judge(models.Model):
     slug = models.SlugField(max_length=60, blank=True)
     job = models.CharField(max_length=120)
     avatar = models.ImageField(upload_to='judge/%Y/%m/%d/', blank=True)
+
+    @property
+    def fullname(self):
+        return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
         return reverse("info:judge_detail", kwargs={"slug": self.slug})

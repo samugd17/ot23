@@ -4,7 +4,6 @@
 
 {% block content %}
 <section id="team" class="teacher-area">
-	<h1 class="text-center">Profesores</h1>	
 	<div class="container">								
 		<div class="row text-center d-flex flex-row justify-content-center mt-4">
             {% for teacher in teachers %}
@@ -12,9 +11,8 @@
 				<div class="single-teacher">
 					<a href="{{ teacher.get_absolute_url }}">
 						<img src="{{ teacher.avatar.url }}" class="img-fluid" alt="{{ teacher.fullname }}">
-						<h3 class="mt-2">{{ teacher.fullname }}</h3>
-						<p>Materia: {{ teacher.get_subject_display }}</p>
 					</a>
+					<h3 class="mt-2">{{ teacher.fullname }}</h3>
 				</div>							
 			</div>
             {% endfor %}		  

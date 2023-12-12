@@ -3,25 +3,20 @@
 <header id="header" class="header container-fluid ot-gradient shadow mb-5 bg-body rounded">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-4 d-flex justify-content-center align-content-center">
-                <a href="#">
+            <div class="col-lg-3 col-6 d-flex justify-content-center align-content-center">
+                <a href="{% url "info:homepage" %}">
                     <img src="{% static 'img/ot-banner.png' %}" id="ot-header-logo" class="img-fluid p-3" alt="ot-header-logo">
                 </a>
             </div>
-            {% comment %} <div class="header-social-links col-9 d-flex justify-content-end align-items-center">
-                <a href="https://twitter.com/OT_Oficial" id="twitter" class="social">
-                    <img src="{% static 'img/social_media/icons8-twitterx-50.png' %}">
-                </a>
-                <a href="https://www.facebook.com/operaciontriunfo" id="facebook" class="social">
-                    <img src="{% static 'img/social_media/icons8-facebook-50.png' %}">
-                </a>
-                <a href="https://www.instagram.com/operaciontriunfo/" id="instagram" class="social">
-                    <img src="{% static 'img/social_media/icons8-instagram-50.png' %}">
-                </a>
-                <a href="https://www.youtube.com/channel/UCc1sAhdaLjfJi11X1awO-yg" id="youtube" class="social">
-                    <img src="{% static 'img/social_media/icons8-youtube-50.png' %}">
-                </a>
-            </div> {% endcomment %}
+            <!--BREADCRUMBS-->
+            {% include "breadcrumbs.html" %}
+            <!--SEARCH BAR-->
+            <div class="col-lg-3 col-6 d-flex">
+                <form class="d-flex flex-row justify-content-end align-items-center" role="search">
+                    <input class="form-control me-2" type="search" placeholder="..." aria-label="Search" id="arrival-to-city">
+                    <button id="search-btn" class="btn btn-outline-primary" type="submit">Buscar</button>
+                </form>
+            </div>
         </div>
     </div>
 </header>
