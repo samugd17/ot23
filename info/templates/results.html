@@ -3,11 +3,14 @@
 {% block title %}Búsqueda{% endblock title %}
 
 {% block content %}
+{% if teacher_results or competitor_results or judge_results %}
+<div class="row text-center d-flex flex-row justify-content-center mt-4">
+  <p class="display-6">Resultados de búsqueda:</p>
+</div>
 {% if competitor_results %}
 <section id="team" class="team-area">
   <div class="container">						
-    <div class="row text-center d-flex flex-row justify-content-center mt-4">
-      <p class="display-6">Resultados de búsqueda:</p>		
+    <div class="row text-center d-flex flex-row justify-content-center mt-4">		
       {% for result in competitor_results %}
       <div class="our-team col-lg-2 col-sm-4 col-6">
         <div class="single-mate">
@@ -21,12 +24,12 @@
     </div>	
   </div>
 </section>
+{% endif %}
 
-{% elif judge_results %}
+{% if judge_results %}
 <section id="team" class="team-area">
   <div class="container">						
     <div class="row text-center d-flex flex-row justify-content-center mt-4">
-      <p class="display-6">Resultados de búsqueda:</p>		
       {% for result in judge_results %}
       <div class="our-team col-lg-2 col-sm-4 col-6">
         <div class="single-mate">
@@ -40,12 +43,12 @@
     </div>	
   </div>
 </section>
+{% endif %}
 
-{% elif teacher_results %}
+{% if teacher_results %}
 <section id="team" class="team-area">
   <div class="container">						
-    <div class="row text-center d-flex flex-row justify-content-center mt-4">
-      <p class="display-6">Resultados de búsqueda:</p>		
+    <div class="row text-center d-flex flex-row justify-content-center mt-4">		
       {% for result in teacher_results %}
       <div class="our-team col-lg-2 col-sm-4 col-6">
         <div class="single-mate">
@@ -59,10 +62,13 @@
     </div>	
   </div>
 </section>
-{% else %}
-<div class="row text-center d-flex flex-row justify-content-center mt-4">
-<p class="display-6">No hay resultados para su búsqueda</p>
-</div>
+
+
 {% endif %}
 
+{% else %}
+<div class="row text-center d-flex flex-row justify-content-center mt-4">
+  <p class="display-6">No hay resultados para su búsqueda</p>
+  </div>
+{% endif %}
 {% endblock content %}
