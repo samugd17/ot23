@@ -9,15 +9,9 @@
                 </a>
             </div>
             <!--BREADCRUMBS-->
-            {{sections}}
             {% include "breadcrumbs.html" %}
             <!--SEARCH BAR-->
-            <div class="col-md-4 col-6 d-flex">
-                <form class="d-flex flex-row justify-content-end align-items-center" role="search">
-                    <input class="form-control me-2" type="search" placeholder="..." aria-label="Search" id="search">
-                    <button id="search-btn" class="btn btn-outline-primary" type="submit">Buscar</button>
-                </form>
-            </div>
+            {% include "search_bar.html" %}
         </div>
     </div>
 </header>

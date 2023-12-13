@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, render
-
+from .forms  import  SearchForm
 from .models import Competitor, Judge, Teacher, MusicStyle
 
 
@@ -40,15 +40,27 @@ def competitor_detail(request, slug):
 def homepage(request):
     return render(request, 'homepage.html')
 
+def search(request):
+    form = SearchForm(request.GET)
+    competitor_results = []
+    teacher_results = []
+    judge_results = []
 
+    if form.is_valid():
+        query = form.cleaned_data['query']
+        competitor_results = Competitor.objects.filter(
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query) |
+            Q(city__icontains=query) | 
+            Q(style__name__icontains=query)).distinct()
+        
+        judge_results = Judge.objects.filter(
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query)).distinct()
+        
+        teacher_results = Teacher.objects.filter(
+            Q(first_name__icontains=query) |
+            Q(last_name__icontains=query) |
+            Q(subject__icontains=query)).distinct()
 
-
-
-
-
-
-
-# def search(request, tofind: str):
-#     competitors = Competitor.objects.filter(first_name__icontains=tofind)
-#     return render(request, 'results.html', dict(competitors=competitors))
-# Q(question__startswith="Who") | ~Q(pub_date__year=2005)
+    return render(request, 'results.html', {'form': form, 'competitor_results': competitor_results, 'teacher_results': teacher_results, 'judge_results': judge_results})

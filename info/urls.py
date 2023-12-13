@@ -11,5 +11,6 @@ urlpatterns = [
     path("judge/<slug:slug>", views.judge_detail, name="judge_detail"),
     path("competitors/", views.competitor_list, name="competitor_list"),
     path("competitors/<slug:slug>", views.competitor_detail, name="competitor_detail"),
+    path('search/', views.search, name='search'),
     path("", views.homepage, name="homepage"),
 ]
