@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Jurado{% endblock %}
+
+{% block content %}
+<section class="team-area">
+	<div class="container">								
+		<div class="row d-flex justify-content-center align-items-center">
+			<div class="polaroid-detail col-4">
+                <img src="{{ judge.avatar.url }}" class="img-fluid" alt="{{ judge.fullname }}">
+            </div>	
+			<div class="info col-5 text-left">
+                <p class="display-4">{{ judge.fullname }}</p>
+                <p class="description"><i>Profesión:</i> {{ judge.job }}.</p>
+            </div>								  
+		</div>	
+	</div>
+</section>
+{% endblock %}

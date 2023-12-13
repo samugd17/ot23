@@ -1,13 +1,13 @@
 <div class="breadcrumbs col-md-4 col-6 d-flex flex-row justify-content-around align-items-center">
     <ul class="navbar-nav me-auto mx-auto mb-0 d-flex flex-row">
-        <li class="nav-item p-2">
-            <a class="nav-link text-white" aria-current="page" href="#">Profesores</a>
+        <li class="nav-item p-2 m-2">
+            <a class="nav-link text-white {% if section == "Profesores" %}is-active{% endif %}" id="teacher-nav" aria-current="page" href="{% url "info:teacher_list" %}">Profesores</a>
         </li>
-        <li class="nav-item p-2">
-            <a class="nav-link text-white" aria-current="page" href="#">Alumnos</a>
+        <li class="nav-item p-2 m-2">
+            <a class="nav-link text-white {% if section == "Alumnos" %}is-active{% endif %}" id="competitor-nav" aria-current="page" href="{% url "info:competitor_list" %}">Alumnos</a>
         </li>
-        <li class="nav-item p-2">
-            <a class="nav-link text-white" aria-current="page" href="#">Jurado</a>
+        <li class="nav-item p-2 m-2">
+            <a class="nav-link text-white {% if section == "Jurado" %}is-active{% endif %}" id="judge-nav" aria-current="page" href="{% url "info:judge_list" %}">Jurado</a>
         </li>
     </ul>
 </div>

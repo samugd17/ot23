@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Alumnos{% endblock %}
+
+{% block content %}
+<section class="team-area">
+	<div class="container">								
+		<div class="row d-flex justify-content-center align-items-center">
+			<div class="polaroid-detail col-4">
+                <img src="{{ competitor.avatar.url }}" class="img-fluid" alt="{{ competitor.fullname }}">
+            </div>	
+            <div class="info col-5 text-left">
+                <p class="display-6">{{ competitor.fullname }}</p>
+                <p class="small-description"><i>Fecha de nacimiento:</i> {{ competitor.birthdate }}.</p>
+                <p class="small-description"><i>Ciudad:</i> {{ competitor.city }}.</p>
+                <p class="small-description"><i>Profesión:</i> {{ competitor.job }}.</p>
+                <p class="small-description"><i>Hobbies:</i> {{ competitor.hobbies }}.</p>
+                <p class="small-description"><i>Cantante/canción favorita:</i> {{ competitor.favourite_singer_song }}.</p>
+                <p class="small-description"><i>Datos curiosos:</i> {{ competitor.curious_data }}.</p>
+                
+                <p class="small-description"><i>Estilo musical:</i>
+                {% for style in music_styles %}
+                {{ style.name }}{% if not forloop.last %}, {% endif %}{% endfor %}.</p>
+            </div>								  
+		</div>	
+	</div>
+</section>
+{% endblock %}

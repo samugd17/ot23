@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Jurado{% endblock %}
+
+{% block content %}
+<section id="team" class="judge-area">
+	<div class="container">								
+		<div class="row text-center d-flex flex-row justify-content-center mt-4">
+            {% for judge in judges %}
+			<div class="our-team col-lg-2 col-sm-4 col-6">
+				<div class="single-mate">
+					<a href="{{ judge.get_absolute_url }}">
+						<img src="{{ judge.avatar.url }}" class="img-fluid" alt="{{ judge.fullname }}">
+					</a>
+					<h4 class="mt-2 mb-4">{{ judge.fullname }}</h4>
+				</div>							
+			</div>
+      {% endfor %}		  
+		</div>	
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Alumnos{% endblock %}
+
+{% block content %}
+<section id="team" class="team-area">
+	<div class="container">								
+		<div class="row text-center d-flex flex-row justify-content-center mt-4">
+            {% for competitor in competitors %}
+			<div class="our-team col-lg-2 col-sm-4 col-6">
+				<div class="single-mate">
+					<a href="{{ competitor.get_absolute_url }}">
+						<img src="{{ competitor.avatar.url }}" class="img-fluid" alt="{{ competitor.fullname }}">
+					</a>
+					<h4 class="mt-2 mb-4">{{ competitor.fullname }}</h4>
+				</div>							
+			</div>
+			{% endfor %}		  
+		</div>	
+	</div>
+</section>
+{% endblock %}

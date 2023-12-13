@@ -2,15 +2,15 @@
 {% block title %}Profesores{% endblock %}
 
 {% block content %}
-<section class="teacher-area">
+<section class="team-area">
 	<div class="container">								
 		<div class="row d-flex justify-content-center align-items-center">
 			<div class="polaroid-detail col-4">
                 <img src="{{ teacher.avatar.url }}" class="img-fluid" alt="{{ teacher.fullname }}">
             </div>	
-            <div class="info col-5">
+            <div class="info col-5 text-left">
                 <p class="display-4">{{ teacher.fullname }}</p>
-                <p class="h2">Materia: {{ teacher.get_subject_display }}</p>
+                <p class="description"><i>Asignatura:</i> {{ teacher.get_subject_display }}</p>
             </div>								  
 		</div>	
 	</div>

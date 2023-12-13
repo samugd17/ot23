@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, render
 
-from .models import Competitor, Judge, Teacher
+from .models import Competitor, Judge, Teacher, MusicStyle
 
 
 def teacher_list(request):
@@ -11,12 +11,7 @@ def teacher_list(request):
 
 def teacher_detail(request, slug):
     teacher = get_object_or_404(Teacher, slug=slug)
-    return render(
-        request,
-        'info/teacher/detail.html',
-        dict(teacher=teacher)
-        #, section=f'Profesores / {teacher.fullname}'),
-    )
+    return render(request,'info/teacher/detail.html', dict(teacher=teacher, section='Profesores'))
 
 
 def judge_list(request):
@@ -26,9 +21,7 @@ def judge_list(request):
 
 def judge_detail(request, slug):
     judge = get_object_or_404(Judge, slug=slug)
-    return render(
-        request, 'info/judge/detail.html', dict(judge=judge, section=f'Jurado / {judge.fullname}')
-    )
+    return render(request, 'info/judge/detail.html', dict(judge=judge, section='Jurado'))
 
 
 def competitor_list(request):
@@ -40,21 +33,12 @@ def competitor_list(request):
 
 def competitor_detail(request, slug):
     competitor = get_object_or_404(Competitor, slug=slug)
-    return render(
-        request,
-        'info/competitor/detail.html',
-        dict(competitor=competitor, section=f'Alumnos / {competitor.fullname}'),
-    )
+    music_styles = MusicStyle.objects.filter(competitor=competitor)
+    return render(request, 'info/competitor/detail.html', dict(competitor=competitor, music_styles=music_styles, section='Alumnos'))
 
 
 def homepage(request):
     return render(request, 'homepage.html')
-
-
-def breadcrumbs(request):
-    sections = ['Alumnos', 'Profesores', 'Jurado']
-    return render(request, 'info/breadcrumbs.html', {'sections': sections})
-
 
 
 

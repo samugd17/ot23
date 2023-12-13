@@ -7,15 +7,15 @@
 	<div class="container">								
 		<div class="row text-center d-flex flex-row justify-content-center mt-4">
             {% for teacher in teachers %}
-			<div class="our-teachers col-lg-2 col-sm-4 col-6">
-				<div class="single-teacher">
+			<div class="our-team col-lg-2 col-sm-4 col-6">
+				<div class="single-mate">
 					<a href="{{ teacher.get_absolute_url }}">
 						<img src="{{ teacher.avatar.url }}" class="img-fluid" alt="{{ teacher.fullname }}">
 					</a>
-					<h3 class="mt-2">{{ teacher.fullname }}</h3>
+					<h4 class="mt-2 mb-4">{{ teacher.fullname }}</h4>
 				</div>							
 			</div>
-            {% endfor %}		  
+      {% endfor %}		  
 		</div>	
 	</div>
 </section>
