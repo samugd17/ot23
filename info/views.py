@@ -1,7 +1,8 @@
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, render
-from .forms  import  SearchForm
-from .models import Competitor, Judge, Teacher, MusicStyle
+
+from .forms import SearchForm
+from .models import Competitor, Judge, MusicStyle, Teacher
 
 
 def teacher_list(request):
@@ -11,7 +12,7 @@ def teacher_list(request):
 
 def teacher_detail(request, slug):
     teacher = get_object_or_404(Teacher, slug=slug)
-    return render(request,'info/teacher/detail.html', dict(teacher=teacher, section='Profesores'))
+    return render(request, 'info/teacher/detail.html', dict(teacher=teacher, section='Profesores'))
 
 
 def judge_list(request):
@@ -34,11 +35,16 @@ def competitor_list(request):
 def competitor_detail(request, slug):
     competitor = get_object_or_404(Competitor, slug=slug)
     music_styles = MusicStyle.objects.filter(competitor=competitor)
-    return render(request, 'info/competitor/detail.html', dict(competitor=competitor, music_styles=music_styles, section='Alumnos'))
+    return render(
+        request,
+        'info/competitor/detail.html',
+        dict(competitor=competitor, music_styles=music_styles, section='Alumnos'),
+    )
 
 
 def homepage(request):
     return render(request, 'homepage.html')
+
 
 def search(request):
     form = SearchForm(request.GET)
@@ -49,18 +55,29 @@ def search(request):
     if form.is_valid():
         query = form.cleaned_data['query']
         competitor_results = Competitor.objects.filter(
-            Q(first_name__icontains=query) |
-            Q(last_name__icontains=query) |
-            Q(city__icontains=query) | 
-            Q(style__name__icontains=query)).distinct()
-        
-        judge_results = Judge.objects.filter(
-            Q(first_name__icontains=query) |
-            Q(last_name__icontains=query)).distinct()
-        
-        teacher_results = Teacher.objects.filter(
-            Q(first_name__icontains=query) |
-            Q(last_name__icontains=query) |
-            Q(subject__icontains=query)).distinct()
+            Q(first_name__icontains=query)
+            | Q(last_name__icontains=query)
+            | Q(city__icontains=query)
+            | Q(style__name__icontains=query)
+        ).distinct()
 
-    return render(request, 'results.html', {'form': form, 'competitor_results': competitor_results, 'teacher_results': teacher_results, 'judge_results': judge_results})
+        judge_results = Judge.objects.filter(
+            Q(first_name__icontains=query) | Q(last_name__icontains=query)
+        ).distinct()
+
+        teacher_results = Teacher.objects.filter(
+            Q(first_name__icontains=query)
+            | Q(last_name__icontains=query)
+            | Q(subject__icontains=query)
+        ).distinct()
+
+    return render(
+        request,
+        'results.html',
+        {
+            'form': form,
+            'competitor_results': competitor_results,
+            'teacher_results': teacher_results,
+            'judge_results': judge_results,
+        },
+    )
