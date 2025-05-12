@@ -1,4 +1,6 @@
-django
-pillow
-django-bootstrap-v5
-requests
+django==4.2.7
+pillow==10.1.10
+django-bootstrap-v5==1.0.11
+requests==2.31.0
+dj-database-url==2.3.0
+gunicorn==23.0.0
