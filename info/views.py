@@ -1,5 +1,4 @@
 from django.db.models import Q
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from .forms import SearchForm
 from .models import Competitor, Judge, Teacher, MusicStyle
@@ -42,12 +41,8 @@ def competitor_detail(request, slug):
     )
 
 
-# def homepage(request):
-#     from django.http import HttpResponse
-
 def homepage(request):
-    return HttpResponse("¡Funciona!")
-
+    return render(request, 'homepage.html')
 
 
 def search(request):
