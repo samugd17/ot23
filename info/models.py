@@ -28,21 +28,21 @@ class Competitor(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
-        return reverse("info:competitor_detail", kwargs={"slug": self.slug})
+        return reverse('info:competitor_detail', kwargs={'slug': self.slug})
 
 
 class Teacher(models.Model):
     class Subjects(models.TextChoices):
-        REVIEW = "REW", "Repaso"
-        CHOREOGRAPHY = "CHP", "Coreografía"
-        FITNESS = "FIT", "Fitness"
-        YOGA = "YOG", "Yoga"
-        MUSICAL_DIRECTOR = "MDR", "Dirección Musical"
-        VOCAL_TECHNIQUE = "VTC", "Técnica Vocal"
-        URBAN_DANCE = "UDC", "Baile Urbano"
-        ENGLISH = "ENG", "Inglés"
-        CHORAL_SINGING = "CSG", "Canto Coral"
-        INTERPRETATION = "INT", "Interpretación"
+        REVIEW = 'REW', 'Repaso'
+        CHOREOGRAPHY = 'CHP', 'Coreografía'
+        FITNESS = 'FIT', 'Fitness'
+        YOGA = 'YOG', 'Yoga'
+        MUSICAL_DIRECTOR = 'MDR', 'Dirección Musical'
+        VOCAL_TECHNIQUE = 'VTC', 'Técnica Vocal'
+        URBAN_DANCE = 'UDC', 'Baile Urbano'
+        ENGLISH = 'ENG', 'Inglés'
+        CHORAL_SINGING = 'CSG', 'Canto Coral'
+        INTERPRETATION = 'INT', 'Interpretación'
 
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -55,7 +55,7 @@ class Teacher(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
-        return reverse("info:teacher_detail", kwargs={"slug": self.slug})
+        return reverse('info:teacher_detail', kwargs={'slug': self.slug})
 
 
 class Judge(models.Model):
@@ -70,4 +70,4 @@ class Judge(models.Model):
         return f'{self.first_name} {self.last_name}'
 
     def get_absolute_url(self):
-        return reverse("info:judge_detail", kwargs={"slug": self.slug})
+        return reverse('info:judge_detail', kwargs={'slug': self.slug})
