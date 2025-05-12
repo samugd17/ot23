@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'insecure-default-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = os.environ.get('.up.railway.app', 'localhost')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'up.railway.app,localhost').split(',')
 
 
 # Application definition
