@@ -42,7 +42,7 @@ def competitor_detail(request, slug):
 
 
 def homepage(request):
-    return render(request, 'homepage.html')
+    return render(request, 'info/homepage.html')
 
 
 def search(request):
