@@ -1,15 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
-# Salir si ocurre cualquier error
-set -e
+echo "Applying migrations..."
+python manage.py migrate --noinput
 
-echo "✅ Ejecutando collectstatic..."
+echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
-echo "✅ Ejecutando migrate..."
-python manage.py migrate
+echo "Starting server..."
+gunicorn ot.wsgi:application --bind 0.0.0.0:8080
 
-echo "🚀 Iniciando Gunicorn..."
-exec gunicorn ot.wsgi:application \
-    --bind 0.0.0.0:8080 \
-    --workers 4
