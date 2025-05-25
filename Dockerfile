@@ -12,6 +12,7 @@ COPY media/ /app/media/
 RUN pip install --upgrade pip \
 && pip install -r requirements.txt
 
+RUN python manage.py collectstatic --noinput
 RUN chmod +x /app/entrypoint.sh
 
 EXPOSE 8080
