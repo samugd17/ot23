@@ -1,0 +1,8 @@
+.venv
+justfile
+*.pyc
+*.sqlite3
+.mypy_cache
+__pycache__
+.env
+staticfiles/
