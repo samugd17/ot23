@@ -1,0 +1,85 @@
+/***** VARIABLES *****/
+$gradient-background: linear-gradient(to right, rgb(37, 37, 209), rgb(223, 119, 119), rgb(255, 187, 60));
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.ot-gradient {
+    background: $gradient-background;
+}
+
+/*****HEADER*****/
+.nav-link {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+
+    &:after {    
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #fff;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+    
+    &:hover:after { 
+        width: 100%; 
+        left: 0; 
+    }
+    
+}
+.is-active {
+    text-decoration: underline;
+    text-decoration-color: #fff;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 19px;
+}
+
+/*****HOMEPAGE*****/
+.polaroid {
+    width: fit-content;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 25px;
+
+    img {
+        width: 500px;
+        height: 300px;
+        object-fit: cover;
+        padding-top: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .name {
+        text-align: center;
+        padding: 10px 20px;
+        letter-spacing: 0.15em;
+    }
+}
+
+/******LIST*****/
+.team-area a {
+    text-decoration: none;
+    color: black;
+}
+
+/*****DETAILS*****/
+.description {
+    font-size: 30px;
+}
