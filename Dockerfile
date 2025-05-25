@@ -6,6 +6,8 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 
 COPY . /app
+COPY media/ /app/media/
+
 
 RUN pip install --upgrade pip \
 && pip install -r requirements.txt
